@@ -5,12 +5,9 @@ module.exports = {
     connect: () => {
         mongoose.connect(
             process.env.DB_URI_ONLINE, {
-                useUnifiedTopology: true,
-                useCreateIndex: true,
-                useNewUrlParser: true,
-                useFindAndModify: false
-            }
-        )
+            useUnifiedTopology: true,
+            useNewUrlParser: true,
+        })
 
         const connection = mongoose.connection
         connection.once('open', () => {

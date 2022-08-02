@@ -1,10 +1,23 @@
-let express = require("express");
-let app = express();
+const express = require('express');
+const app = express();
 
-let cors = require("cors");
+let cors = require('cors');
+const route  = require("./api/routes/userRoute")
 
-const route  = 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 
-app.use('/', (req, res) => 'Welcome All')
+require('./api/db/db').connect()
 
-module.exports = app
+app.get('/', (req, res) => {
+    return res.json({
+        status: "Success",
+        message: "Welcome to CRUDApp"
+    })
+})
+
+app.use('/api/v1', route)
+
+app.use(cors())
+
+module.exports = app;

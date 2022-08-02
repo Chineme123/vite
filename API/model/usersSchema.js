@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-// const { required } = require('nodemon/lib/config')
-
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
@@ -17,6 +15,13 @@ const userSchema = new Schema({
     "country": {
         type: String,
         required: true,
+    },
+
+   
+
+    "created at": {
+        type: Date,
+        default: Date.now
     }
 })
 
